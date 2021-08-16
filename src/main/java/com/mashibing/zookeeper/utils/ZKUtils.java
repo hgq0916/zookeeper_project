@@ -1,5 +1,6 @@
-package com.mashibing.zookeeper.discovery;
+package com.mashibing.zookeeper.utils;
 
+import com.mashibing.zookeeper.discovery.DefaultWatch;
 import org.apache.zookeeper.ZooKeeper;
 
 import java.io.IOException;
@@ -29,10 +30,20 @@ public class ZKUtils {
      * @return
      */
     public static ZooKeeper getZK(String path){
+        return getZK("",2000);
+    }
+
+    /**
+     *
+     * 获取zk
+     * @param path 默认路径
+     * @return
+     */
+    public static ZooKeeper getZK(String path,int timeout){
         ZooKeeper zk = null;
         try {
             DefaultWatch defaultWatch = new DefaultWatch();
-            zk = new ZooKeeper(connectString+path,2000,defaultWatch);
+            zk = new ZooKeeper(connectString+path,timeout,defaultWatch);
             defaultWatch.await();
         } catch (IOException e) {
             e.printStackTrace();

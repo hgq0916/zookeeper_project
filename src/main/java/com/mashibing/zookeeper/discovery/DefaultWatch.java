@@ -15,7 +15,7 @@ public class DefaultWatch implements Watcher {
     private CountDownLatch countDownLatch = new CountDownLatch(1);
 
     public void process(WatchedEvent event) {
-        System.out.println("连接监控:"+event.toString());
+        //System.out.println("连接监控:"+event.toString());
         switch (event.getState()){
 
             case Unknown:

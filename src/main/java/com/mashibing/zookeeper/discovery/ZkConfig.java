@@ -1,5 +1,6 @@
 package com.mashibing.zookeeper.discovery;
 
+import com.mashibing.zookeeper.utils.ZKUtils;
 import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
 import org.junit.After;
